@@ -1,0 +1,15 @@
+/* Estilos personalizados */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: currentColor;
+    border-radius: 3px;
+}
+
+/* Adicione outros estilos personalizados aqui */

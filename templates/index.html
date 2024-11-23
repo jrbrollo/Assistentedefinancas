@@ -24,198 +24,77 @@
         }
     </script>
 </head>
-<body class="min-h-screen font-inter transition-colors duration-300
-             dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900
-             bg-gradient-to-br from-gray-100 to-white">
-    <div class="container mx-auto px-4 py-12 max-w-4xl">
-        <!-- Botão de Tema -->
-        <div class="flex justify-end mb-4">
+<body class="min-h-screen flex flex-col font-inter transition-colors duration-300 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900 bg-gradient-to-br from-gray-100 to-white">
+    <!-- Header Fixo -->
+    <header class="border-b dark:border-zinc-700 border-gray-200 bg-opacity-50 backdrop-blur-lg">
+        <div class="container mx-auto px-4 py-3 max-w-4xl flex justify-between items-center">
+            <div class="flex-1">
+                <h1 class="text-2xl font-playfair font-bold dark:text-white text-zinc-800">Assistente Financeiro</h1>
+                <p class="dark:text-gray-400 text-gray-600 text-sm">Disponibilizado por Hélio Brollo Jr.</p>
+            </div>
             <button 
                 onclick="toggleTheme()" 
-                class="p-2 rounded-lg border dark:border-zinc-700 border-gray-300 
-                       dark:bg-zinc-800/50 bg-white/50 backdrop-blur-lg
-                       dark:text-gray-300 text-gray-700
-                       hover:border-premium-gold transition-all duration-300"
-                id="theme-toggle"
-            >
-                <!-- Ícone Sol/Lua será inserido via JavaScript -->
+                class="p-2 rounded-lg border dark:border-zinc-700 border-gray-300 dark:bg-zinc-800/50 bg-white/50 backdrop-blur-lg dark:text-gray-300 text-gray-700 hover:border-premium-gold transition-all duration-300"
+                id="theme-toggle">
             </button>
         </div>
+    </header>
 
-        <!-- Cabeçalho Premium -->
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-playfair font-bold mb-2 dark:text-white text-zinc-800">
-                Assistente Financeiro Pessoal
-            </h1>
-            <p class="dark:text-gray-400 text-gray-600 text-lg">Disponibilizado por Hélio Brollo Jr.</p>
-        </div>
-        
-        <!-- Container do Chat -->
-        <div class="backdrop-blur-lg rounded-2xl shadow-2xl mb-6
-                    dark:bg-zinc-900/50 dark:border-zinc-700
-                    bg-white/50 border border-gray-200 p-6">
-            <!-- Área das Mensagens -->
-            <div id="chat-container" class="mb-6 h-[480px] overflow-y-auto
-                                         scrollbar-thin dark:scrollbar-thumb-zinc-700 scrollbar-thumb-gray-300 scrollbar-track-transparent">
-                <!-- Mensagem de Boas-vindas -->
-                <div class="mb-6 text-center">
-                    <div class="inline-block p-4 rounded-lg space-y-3
-                                dark:bg-zinc-800/50 dark:text-gray-300
-                                bg-gray-100/50 text-gray-700">
-                        <p class="font-semibold text-premium-gold">Olá! Sou seu assistente financeiro pessoal.</p>
-                        <p>Estou aqui para ajudar você a tomar melhores decisões financeiras, seja com seu orçamento familiar ou seus investimentos.</p>
-                    </div>
+    <!-- Container Principal com Flex -->
+    <div class="flex-1 flex flex-col h-full container mx-auto px-4 max-w-4xl">
+        <!-- Área de Chat com Scroll -->
+        <div id="chat-container" class="flex-1 overflow-y-auto py-4 space-y-4">
+            <!-- Mensagem de Boas-vindas -->
+            <div class="text-center">
+                <div class="inline-block p-3 rounded-lg space-y-2 dark:bg-zinc-800/50 dark:text-gray-300 bg-gray-100/50 text-gray-700">
+                    <p class="font-semibold text-premium-gold">Olá! Sou seu assistente financeiro pessoal.</p>
+                    <p class="text-sm">Estou aqui para ajudar você a tomar melhores decisões financeiras.</p>
                 </div>
             </div>
-            
+        </div>
+
+        <!-- Footer Fixo -->
+        <footer class="border-t dark:border-zinc-700 border-gray-200 py-4 bg-opacity-50 backdrop-blur-lg">
             <!-- Sugestões de Perguntas -->
-            <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-3">
-                <button onclick="fazerPergunta(this.textContent)" 
-                        class="text-left p-3 rounded-lg transition-all cursor-pointer border
-                               dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700
-                               bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200
-                               hover:text-premium-gold">
-                    💰 Como organizar meu orçamento familiar?
-                </button>
-                <button onclick="fazerPergunta(this.textContent)" 
-                        class="text-left p-3 rounded-lg transition-all cursor-pointer border
-                               dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700
-                               bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200
-                               hover:text-premium-gold">
-                    📊 Quais são as melhores opções de investimento para iniciantes?
-                </button>
-                <button onclick="fazerPergunta(this.textContent)" 
-                        class="text-left p-3 rounded-lg transition-all cursor-pointer border
-                               dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700
-                               bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200
-                               hover:text-premium-gold">
-                    🎯 Como criar um plano para quitar minhas dívidas?
-                </button>
-                <button onclick="fazerPergunta(this.textContent)" 
-                        class="text-left p-3 rounded-lg transition-all cursor-pointer border
-                               dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700
-                               bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200
-                               hover:text-premium-gold">
-                    🏠 Vale a pena financiar um imóvel no momento atual?
-                </button>
+            <div class="mb-4 overflow-x-auto pb-2">
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-2 min-w-max inline-grid">
+                    <button onclick="fazerPergunta(this.textContent)" class="text-left p-2 text-sm rounded-lg transition-all cursor-pointer border dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700 bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200 hover:text-premium-gold">
+                        💰 Organizar orçamento
+                    </button>
+                    <button onclick="fazerPergunta(this.textContent)" class="text-left p-2 text-sm rounded-lg transition-all cursor-pointer border dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700 bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200 hover:text-premium-gold">
+                        📊 Investimentos para iniciantes
+                    </button>
+                    <button onclick="fazerPergunta(this.textContent)" class="text-left p-2 text-sm rounded-lg transition-all cursor-pointer border dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700 bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200 hover:text-premium-gold">
+                        🎯 Plano para quitar dívidas
+                    </button>
+                    <button onclick="fazerPergunta(this.textContent)" class="text-left p-2 text-sm rounded-lg transition-all cursor-pointer border dark:bg-zinc-800/30 dark:hover:bg-zinc-800/50 dark:text-gray-300 dark:border-zinc-700 bg-gray-100/50 hover:bg-gray-200/50 text-gray-700 border-gray-200 hover:text-premium-gold">
+                        🏠 Financiar imóvel
+                    </button>
+                </div>
             </div>
-            
+
             <!-- Formulário de Input -->
-            <form id="chat-form" class="flex gap-3">
+            <form id="chat-form" class="flex gap-2">
                 <input 
                     type="text" 
                     id="user-input" 
-                    class="flex-1 p-4 rounded-xl transition-all
-                           dark:bg-zinc-800/50 dark:border-zinc-700 dark:text-gray-200 dark:placeholder-gray-500
-                           bg-gray-100/50 border border-gray-200 text-gray-700 placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-premium-gold"
-                    placeholder="Digite sua dúvida financeira ou clique em uma sugestão acima..."
+                    class="flex-1 p-3 text-sm rounded-xl transition-all dark:bg-zinc-800/50 dark:border-zinc-700 dark:text-gray-200 dark:placeholder-gray-500 bg-gray-100/50 border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-premium-gold"
+                    placeholder="Digite sua dúvida financeira..." 
                     required
                 >
                 <button 
                     type="submit"
-                    class="px-8 py-4 bg-gradient-to-r from-premium-gold to-deep-gold text-white font-semibold 
-                           rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl
-                           hover:from-deep-gold hover:to-premium-gold"
+                    class="px-4 py-3 text-sm bg-gradient-to-r from-premium-gold to-deep-gold text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:from-deep-gold hover:to-premium-gold"
                 >
                     Enviar
                 </button>
             </form>
-        </div>
 
-        <!-- Dica de Uso -->
-        <div class="text-center text-sm dark:text-gray-400 text-gray-500">
-            Dica: Seja específico em suas perguntas para receber orientações mais precisas
-        </div>
+            <!-- Dica de Uso -->
+            <div class="text-center text-xs dark:text-gray-400 text-gray-500 mt-2">
+                Dica: Seja específico em suas perguntas
+            </div>
+        </footer>
     </div>
-
-    <script>
-        const chatContainer = document.getElementById('chat-container');
-        const chatForm = document.getElementById('chat-form');
-        const userInput = document.getElementById('user-input');
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Inicializar tema baseado na preferência do usuário
-        const theme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.className = theme;
-        updateThemeButton();
-
-        function updateThemeButton() {
-            const isDark = document.documentElement.classList.contains('dark');
-            themeToggle.innerHTML = isDark 
-                ? '☀️' // Sol para modo claro
-                : '🌙'; // Lua para modo escuro
-        }
-
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.contains('dark');
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-            updateThemeButton();
-        }
-
-        // Gerar ID único para o usuário
-        const userId = 'user_' + Math.random().toString(36).substr(2, 9);
-
-        function fazerPergunta(pergunta) {
-            userInput.value = pergunta;
-            userInput.focus();
-        }
-        
-        function addMessage(content, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `mb-6 ${isUser ? 'text-right' : 'text-left'}`;
-            
-            const messageBubble = document.createElement('div');
-            messageBubble.className = `inline-block p-4 rounded-xl max-w-[80%] ${
-                isUser 
-                    ? 'bg-gradient-to-r from-premium-gold to-deep-gold text-white' 
-                    : document.documentElement.classList.contains('dark')
-                        ? 'bg-zinc-800/50 text-gray-300'
-                        : 'bg-gray-100/50 text-gray-700'
-            }`;
-            messageBubble.textContent = content;
-            
-            messageDiv.appendChild(messageBubble);
-            chatContainer.appendChild(messageDiv);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-        
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const message = userInput.value.trim();
-            if (!message) return;
-            
-            // Adicionar mensagem do usuário
-            addMessage(message, true);
-            userInput.value = '';
-            
-            try {
-                const response = await fetch('/ask', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        user_id: userId
-                    }),
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    // Adicionar resposta do assistente
-                    addMessage(data.response);
-                } else {
-                    addMessage('Desculpe, ocorreu um erro. Por favor, tente novamente.');
-                }
-            } catch (error) {
-                console.error('Erro:', error);
-                addMessage('Erro de conexão. Por favor, verifique sua internet e tente novamente.');
-            }
-        });
-    </script>
 </body>
 </html>
